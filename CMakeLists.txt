@@ -9,9 +9,19 @@ project(kd_tree_ros)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED)
 
+add_subdirectory(${PROJECT_SOURCE_DIR}/src/kd_tree)
+
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 
+set(PACKAGE_DEPENDENCIES
+  message_generation
+  roscpp
+  geometry_msgs
+  std_msgs
+)
+
+find_package(catkin REQUIRED COMPONENTS ${PACKAGE_DEPENDENCIES})
 
 ## Uncomment this if the package has a setup.py. This macro ensures
 ## modules and global scripts declared therein get installed
@@ -43,11 +53,10 @@ find_package(catkin REQUIRED)
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
-# add_message_files(
-#   FILES
-#   Message1.msg
-#   Message2.msg
-# )
+add_message_files(
+  FILES
+  DetectionStamped.msg
+)
 
 ## Generate services in the 'srv' folder
 # add_service_files(
@@ -64,10 +73,11 @@ find_package(catkin REQUIRED)
 # )
 
 ## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   std_msgs  # Or other packages containing msgs
-# )
+generate_messages(
+  DEPENDENCIES
+  std_msgs  # Or other packages containing msgs
+  geometry_msgs
+)
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -112,8 +122,8 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-# include
-# ${catkin_INCLUDE_DIRS}
+  include
+  ${catkin_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
