@@ -14,12 +14,10 @@ kdTreeRos::kdTreeRos(const ros::NodeHandle &nh_):
 
 bool kdTreeRos::insertData(kd_tree_ros::DetectionStamped det_msg){
   coord_ns::Coord coord;
-  coord.sec = det_msg.header.stamp.sec;
-  coord.nsec = det_msg.header.stamp.nsec;
+  coord.t_stamp = det_msg.header.stamp.toSec();
   coord.x = det_msg.point.x;
   coord.y = det_msg.point.y;
   coord.z = det_msg.point.z;
   tree->insertPoint(coord, det_msg.confidence, det_msg.id, det_msg.class_name);
-
 }
 }

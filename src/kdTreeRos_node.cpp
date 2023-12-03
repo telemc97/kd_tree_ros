@@ -1,7 +1,7 @@
 #include <ros/ros.h>
 #include "kd_tree_ros/kdTreeRos.h"
 
-using namespace kd_tree_ros_ns;
+using namespace kdtree_ros_ns;
 
 int main(int argc, char** argv){
   

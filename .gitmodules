@@ -1,3 +1,7 @@
 [submodule "src/kd_tree"]
 	path = src/kd_tree
 	url = https://github.com/telemc97/kd_tree.git
+
+[submodule "src/pos_predictator"]
+	path = src/pos_predictator
+	url = https://github.com/telemc97/pos_predictator.git
