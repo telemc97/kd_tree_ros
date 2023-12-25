@@ -6,10 +6,10 @@
                 "limitSymbolsToIncludedHeaders": false
             },
             "includePath": [
-                "/home/tilemahos/catkin_ws/devel/include/**",
+                "/home/telemc/catkin_ws/devel/include/**",
                 "/opt/ros/noetic/include/**",
                 "/usr/include/**",
-                "/home/tilemahos/catkin_ws/src/kd_tree_ros/include/**",
+                "/home/telemc/catkin_ws/src/kd_tree_ros/include/**",
                 "${workspaceFolder}"
             ],
             "name": "ROS",

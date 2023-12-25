@@ -1,4 +1,5 @@
-#include <kd_tree_ros/kdTreeRos.h>
+#include "kd_tree_ros/kdTreeRos.h"
+#include "pyInterface.cpp"
 
 namespace kdtree_ros_ns{
 
@@ -10,6 +11,7 @@ kdTreeRos::kdTreeRos(const ros::NodeHandle &nh_):
   node_handle.param("resolution", res, res);
   tree = new kdtree_ns::KdTree();
   sub = new message_filters::Subscriber<kd_tree_ros::DetectionStamped>(node_handle, "/tracker_output", 5);
+  sub->registerCallback(insertData);
 }
 
 bool kdTreeRos::insertData(kd_tree_ros::DetectionStamped det_msg){
@@ -19,5 +21,6 @@ bool kdTreeRos::insertData(kd_tree_ros::DetectionStamped det_msg){
   coord.y = det_msg.point.y;
   coord.z = det_msg.point.z;
   tree->insertPoint(coord, det_msg.confidence, det_msg.id, det_msg.class_name);
+  py_interface_ns::pyInterface();
 }
 }

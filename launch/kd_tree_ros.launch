@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <remap from="/det_tracker/point" to="/tracker_output" />
+    <node name="kd_tree_ros" pkg="kd_tree_ros" type="kd_tree_ros_node" name="kd_tree_ros"/>
+</launch>

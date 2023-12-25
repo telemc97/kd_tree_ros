@@ -1,5 +1,5 @@
 #include <ros/ros.h>
-#include <kd_tree_ros/DetectionStamped.h>
+#include "kd_tree_ros/DetectionStamped.h"
 #include <message_filters/subscriber.h>
 #include "src/kd_tree/include/kdtree.h"
 

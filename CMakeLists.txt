@@ -21,6 +21,15 @@ set(PACKAGE_DEPENDENCIES
   std_msgs
 )
 
+find_package(Python COMPONENTS Development)
+if (NOT Python_FOUND)
+  message(FATAL_ERROR "Python not found")
+endif()
+message("Python_FOUND:${Python_FOUND}")
+message("Python_VERSION:${Python_VERSION}")
+message("Python_Development_FOUND:${Python_Development_FOUND}")
+message("Python_LIBRARIES:${Python_LIBRARIES}")
+
 find_package(catkin REQUIRED COMPONENTS ${PACKAGE_DEPENDENCIES})
 
 ## Uncomment this if the package has a setup.py. This macro ensures
